@@ -1,15 +1,12 @@
 import java.util.Arrays;
 class Solution {
     public int[] solution(long n) {
+        int[] answer = new int[5];
         String str = Long.toString(n);
-        int [] answer = new int[str.length()];
-        int num = 0;
-        while(n > 0){
-            answer[num] = (int)(n % 10);
-            n /= 10;
-            num++;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            answer[i] = Integer.parseInt(String.valueOf(ch));
         }
-       
-        return answer;
+        return Arrays.stream(answer).sorted().toArray();
     }
 }
